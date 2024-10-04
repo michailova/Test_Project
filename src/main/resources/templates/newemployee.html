@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru,en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Add employee</title>
+    <link rel="stylesheet" href="../static/css/app.css" th:href="@{/css/app.css}" />
+</head>
+<body>
+<div class="header">
+    <h1>Add employee</h1>
+</div>
+<br>
+    <form action="#" th:action="@{/employees/save}" method="post" th:object="${employee}">
+        <label>First Name:</label>
+        <input type="text" th:field="*{first_name}" /><br/>
+        <br>
+        <label>Last Name:</label>
+        <input type="text" th:field="*{last_name}" /><br/>
+        <br>
+        <label>Patronymic:</label>
+        <input type="text" th:field="*{patronymic}" /><br/>
+        <br>
+        <label>Email:</label>
+        <input type="email" th:field="*{email}" /><br/>
+        <br>
+        <label>Position:</label>
+        <input type="text" th:field="*{position}" /><br/>
+        <br/>
+        <br>
+        <button type="submit">Save</button>
+    </form>
+
+</div>
+</body>
+</html>

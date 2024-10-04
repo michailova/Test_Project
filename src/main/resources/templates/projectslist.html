@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en, ru" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <title>Projects list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../static/css/app.css" th:href="@{/css/app.css}"/>
+</head>
+
+<body>
+<div class="header">
+    <h1>Projects</h1>
+</div>
+<div class="topnav">
+    <a th:href="@{/projects/addproject}">Add project</a>
+    <a th:href="@{/employees/addemployee}">Add employee</a>
+</div>
+<table class="table">
+    <th>Project name</th>
+    <th>Details</th>
+    <th>Employees</th>
+    <th>Assign</th>
+    </tr>
+
+    <tr th:each="p: ${projects}">
+        <td th:text="${p.name}?: '  '"/>
+        <td th:text="${p.details}?: '  '"/>
+        <td th:text="${p.employees}?: '  '"/>
+        <td><a th:href="@{'/projects/assign-project-' + ${p.id}}">Assign</a></td>
+    </tr>
+</table>
+</body>
+</html>

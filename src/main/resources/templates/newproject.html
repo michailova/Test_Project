@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru,en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Add document</title>
+    <link rel="stylesheet" href="../static/css/app.css" th:href="@{/css/app.css}" />
+</head>
+<body>
+<div class="header">
+    <h1>Add project</h1>
+</div>
+<br>
+    <form action="#" th:action="@{/projects/save}" method="post" th:object="${project}">
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" /><br/>
+        <br>
+        <label>Details:</label>
+        <textarea type="text"  th:field="*{details}" /></textarea><br/>
+        <br>
+        <label>To employees:</label>
+        <select th:field="*{employees}" multiple="true" /><br/>
+        <option th:each="e : ${employeeslist}" th:value="${e.id}" th:text="${e.id + e.last_name}"></option>
+        </select>
+        <br/>
+        <br>
+        <button type="submit">Save</button>
+    </form>
+
+</div>
+</body>
+</html>
